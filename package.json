@@ -1,13 +1,10 @@
 {
   "name": "create-my-react-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "create-my-react-app": "node cmra.js"
+  "bin": {
+    "create-my-react-app": "./index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Alexandros Apostolou",
   "dependencies": {
     "download": "^8.0.0",
     "unzipper": "^0.10.11"
