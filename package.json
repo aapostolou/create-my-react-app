@@ -1,0 +1,15 @@
+{
+  "name": "create-my-react-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "create-my-react-app": "node cmra.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "download": "^8.0.0",
+    "unzipper": "^0.10.11"
+  }
+}
