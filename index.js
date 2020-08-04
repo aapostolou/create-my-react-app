@@ -10,7 +10,8 @@ const download = require("download");
 
 const unzipper = require("unzipper");
 
-const url = "https://github.com/aapostolou/React-Redux/archive/master.zip";
+const url = "https://github.com/aapostolou/create-my-react-app/archive/master.zip";
+const fname = "create-my-react-app-master";
 
 const rootDir = path.join(__dirname, "..");
 
@@ -41,7 +42,7 @@ else if (process.argv.length < 4) {
           setTimeout(
             () =>
               // Rename to target dir name
-              fs.rename(`${rootDir}/React-Redux-master`, targetDir, (err) => {
+              fs.rename(`${rootDir}/${fname}.zip`, targetDir, (err) => {
                 if (err) throw err;
 
                 // Delete Zip
