@@ -7,6 +7,7 @@
   "author": "Alexandros Apostolou",
   "dependencies": {
     "download": "^8.0.0",
+    "ncp": "^2.0.0",
     "unzipper": "^0.10.11"
   }
 }

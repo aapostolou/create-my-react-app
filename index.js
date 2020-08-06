@@ -3,6 +3,7 @@
 "use strict";
 
 const fs = require("fs");
+const ncp = require("ncp").ncp;
 const path = require("path");
 const cp = require("child_process");
 
@@ -10,9 +11,10 @@ const download = require("download");
 
 const unzipper = require("unzipper");
 
-const url = "https://github.com/aapostolou/React-Redux/archive/master.zip";
+const url =
+  "https://github.com/aapostolou/create-my-react-app/archive/master.zip";
 
-const rootDir = path.join(__dirname, "..");
+const rootDir = process.cwd();
 
 console.log(rootDir);
 
@@ -38,19 +40,49 @@ else if (process.argv.length < 4) {
       // Unzip them
       await fs.createReadStream(`${rootDir}/temp.zip`).pipe(
         unzipper.Extract({ path: `${rootDir}` }).on("finish", (data) => {
-          setTimeout(
-            () =>
-              // Rename to target dir name
-              fs.rename(`${rootDir}/React-Redux-master`, targetDir, (err) => {
+          setTimeout(() => {
+            // Rename to target dir name
+            fs.rename(
+              `${rootDir}/create-my-react-app-master`,
+              targetDir,
+              (err) => {
                 if (err) throw err;
 
                 // Delete Zip
                 fs.unlink(`${rootDir}/temp.zip`, (err2) => {
                   if (err2) throw err2;
                 });
-              }),
-            1000
-          );
+                // Delete .gitignore
+                fs.unlink(`${targetDir}/.gitignore`, (err2) => {
+                  if (err2) throw err2;
+                });
+                //Delete index.js
+                fs.unlink(`${targetDir}/index.js`, (err2) => {
+                  if (err2) throw err2;
+                });
+                // Delete package.json
+                fs.unlink(`${targetDir}/package.json`, (err2) => {
+                  if (err2) throw err2;
+                });
+
+                // Moving files around !?!?!
+                ncp(`${targetDir}/create-my-react-app`, targetDir, function (
+                  err3
+                ) {
+                  if (err3) throw err3;
+
+                  // Delete the last folder
+                  fs.rmdir(
+                    `${targetDir}/create-my-react-app`,
+                    { recursive: true },
+                    (err4) => {
+                      if (err4) throw err4;
+                    }
+                  );
+                });
+              }
+            );
+          }, 1000);
         })
       );
     })();
