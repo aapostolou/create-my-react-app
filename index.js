@@ -50,19 +50,19 @@ else if (process.argv.length < 4) {
                 if (err) throw err;
 
                 // Delete Zip
-                fs.unlink(`${rootDir}/temp.zip`, (err2) => {
+                fs.unlinkSync(`${rootDir}/temp.zip`, (err2) => {
                   if (err2) throw err2;
                 });
                 // Delete .gitignore
-                fs.unlink(`${targetDir}/.gitignore`, (err2) => {
+                fs.unlinkSync(`${targetDir}/.gitignore`, (err2) => {
                   if (err2) throw err2;
                 });
                 //Delete index.js
-                fs.unlink(`${targetDir}/index.js`, (err2) => {
+                fs.unlinkSync(`${targetDir}/index.js`, (err2) => {
                   if (err2) throw err2;
                 });
                 // Delete package.json
-                fs.unlink(`${targetDir}/package.json`, (err2) => {
+                fs.unlinkSync(`${targetDir}/package.json`, (err2) => {
                   if (err2) throw err2;
                 });
 
