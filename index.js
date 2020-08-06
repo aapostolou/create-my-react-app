@@ -13,6 +13,7 @@ const unzipper = require("unzipper");
 
 const url =
   "https://github.com/aapostolou/create-my-react-app/archive/master.zip";
+const fname = "create-my-react-app-master";
 
 const rootDir = process.cwd();
 
