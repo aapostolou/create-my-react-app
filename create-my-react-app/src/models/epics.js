@@ -14,7 +14,7 @@ const handleResetEpic = (action$) =>
                     type: RESET,
                 };
             }
-        })
+        )
     );
 
 //? Language
