@@ -5,10 +5,8 @@ import { Provider } from "react-redux";
 import { createEpicMiddleware } from "redux-observable";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import rootReducer from "./models/reducers";
-import rootEpic from "./models/epics";
-
-import "./App.css";
+import rootReducer from "models/reducers";
+import rootEpic from "models/epics";
 
 const epicMiddleware = createEpicMiddleware();
 
